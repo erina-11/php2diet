@@ -25,9 +25,9 @@ if ($status == false) {
     $output = "";
     foreach ($result as $record) {
         $output .= "<tr>";
-        $output .= "<td>{$record["date"]}</td>";
         $output .= "<td>{$record["weight"]}</td>";
-        $output .= "<td>{$record["snack"]}</td>";
+        // $output .= "<td>{$record["weight"]}</td>";
+        // $output .= "<td>{$record["snack"]}</td>";
         $output .= "</tr>";
     }
 }
@@ -49,9 +49,9 @@ if ($status == false) {
         <table>
             <thead>
                 <tr>
-                    <th>date</th>
+                    <!-- <th>date</th> -->
                     <th>weight</th>
-                    <th>snack</th>
+                    <!-- <th>snack</th> -->
                 </tr>
             </thead>
             <tbody>
