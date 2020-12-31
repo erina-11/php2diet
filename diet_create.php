@@ -5,7 +5,6 @@
 
 //入力チェック(未入力の場合は弾く　コメントのみ任意）
 // if (
-//     !isset($_POST['date']) || $_POST['date'] == '' ||
 //     !isset($_POST['weight']) || $_POST['weight'] == '' ||
 //     !isset($_POST['snack']) || $_POST['snack'] == ''
 // ) {
@@ -15,6 +14,7 @@
 //データを変数に格納
 // $date = $_POST['date'];
 $weight = $_POST['weight'];
+$snack = $_POST['snack'];
 // $snack = $_POST['snack'];
 
 // DB接続情報
@@ -33,16 +33,17 @@ try {
 
 
 // SQLを書く
-$sql = 'INSERT INTO diet_table(id, weight, created_at, updated_at) VALUES(NULL, :weight, sysdate(), sysdate())';
+$sql = 'INSERT INTO
+diet_table(id, weight, snack, created_at, updated_at)
+VALUES(NULL, :weight, :snack, sysdate(), sysdate())';
 
 $stmt = $pdo->prepare($sql);
 //バインド変数を設定
-$stmt->bindValue(':weight', $weight, PDO::PARAM_STR);
-
-
-//SQL実行
+$stmt->bindValue(':weight', $weight, PDO::PARAM_INT);
+$stmt->bindValue(':snack', $snack, PDO::PARAM_INT);
 $status = $stmt->execute(); // SQLを実行
-
+// var_dump($status);
+// exit();
 if ($status == false) {
     $error = $stmt->errorInfo();
     // データ登録失敗次にエラーを表示

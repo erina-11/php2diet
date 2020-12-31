@@ -26,6 +26,7 @@ if ($status == false) {
     foreach ($result as $record) {
         $output .= "<tr>";
         $output .= "<td>{$record["weight"]}</td>";
+        $output .= "<td>{$record["snack"]}</td>";
         // $output .= "<td>{$record["weight"]}</td>";
         // $output .= "<td>{$record["snack"]}</td>";
         $output .= "</tr>";
@@ -51,7 +52,7 @@ if ($status == false) {
                 <tr>
                     <!-- <th>date</th> -->
                     <th>weight</th>
-                    <!-- <th>snack</th> -->
+                    <th>snack</th>
                 </tr>
             </thead>
             <tbody>
